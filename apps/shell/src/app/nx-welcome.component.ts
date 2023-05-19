@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'angular-playground-nx-welcome',
@@ -445,7 +446,7 @@ import { CommonModule } from '@angular/common';
               </svg>
               <span>You&apos;re up and running</span>
             </h2>
-            <a href="#commands"> What&apos;s next? </a>
+            <button (click)="welcome()"> Ir a welcome </button>
           </div>
           <div class="logo-container">
             <svg
@@ -853,4 +854,9 @@ nx affected:e2e</pre>
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent {
+  constructor(private _router: Router) {}
+  welcome() {
+    this._router.navigateByUrl('/welcome');
+  }
+}
